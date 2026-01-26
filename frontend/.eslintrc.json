@@ -1,0 +1,4 @@
+# See https://www.npmjs.com/package/eslint-config-next for more information
+{
+  "extends": "next/core-web-vitals"
+}
