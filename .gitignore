@@ -5,7 +5,8 @@ yarn.lock
 
 # Environment variables (any directory)
 **/.env
-**/.env.*
+**/.env.local
+**/.env.development.local
 
 # Logs
 logs/
