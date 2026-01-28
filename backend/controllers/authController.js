@@ -10,6 +10,62 @@ import {
 import { sendVerificationEmail, sendResetCodeEmail } from '../utils/email.js';
 
 /**
+ * Transaction Insert Controller
+ * Inserts a new transaction for the authenticated user
+ */
+export const transactionInsert = async (req, res) => {
+  try {
+    const { type, category, amount, description, transaction_date } = req.body;
+    const userId = req.user.userId; // From authentication middleware
+
+    // Use current date if transaction_date not provided
+    const finalTransactionDate = transaction_date || new Date().toISOString();
+
+    // Insert transaction into database
+    const { data: newTransaction, error: insertError } = await supabase
+      .from('transaction')
+      .insert({
+        user_id: userId,
+        type,
+        category,
+        amount: parseFloat(amount),
+        description: description || null,
+        transaction_date: finalTransactionDate,
+        created_at: new Date().toISOString()
+      })
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('Transaction insert error:', insertError);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to insert transaction'
+      });
+    }
+
+    res.status(201).json({
+      success: true,
+      message: 'Transaction inserted successfully',
+      data: {
+        transaction_id: newTransaction.transaction_id,
+        type: newTransaction.type,
+        category: newTransaction.category,
+        amount: newTransaction.amount,
+        description: newTransaction.description,
+        transaction_date: newTransaction.transaction_date
+      }
+    });
+  } catch (error) {
+    console.error('Transaction insert error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
+  }
+};
+
+/**
  * Sign-Up Controller
  * Creates a new user account with secure password hashing
  */

@@ -5,7 +5,8 @@ import {
   emailVerify,
   verifyEmailCode,
   resetCodeGenerate,
-  resetCodeVerify
+  resetCodeVerify,
+  transactionInsert
 } from '../controllers/authController.js';
 import {
   signUpValidation,
@@ -14,8 +15,10 @@ import {
   verifyEmailCodeValidation,
   resetCodeGenerateValidation,
   resetCodeVerifyValidation,
+  transactionValidation,
   validate
 } from '../middleware/validation.js';
+import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -36,5 +39,8 @@ router.post('/reset-code-generate', resetCodeGenerateValidation, validate, reset
 
 // Reset Code Verify endpoint
 router.post('/reset-code-verify', resetCodeVerifyValidation, validate, resetCodeVerify);
+
+// Transaction insert endpoint (requires authentication)
+router.post('/transaction-in', authenticate, transactionValidation, validate, transactionInsert);
 
 export default router;

@@ -97,3 +97,30 @@ export const resetCodeVerifyValidation = [
     .isInt({ min: 10000000, max: 99999999 })
     .withMessage('Code must be an 8-digit number')
 ];
+
+/**
+ * Transaction validation rules
+ */
+export const transactionValidation = [
+  body('type')
+    .isIn(['income', 'expense'])
+    .withMessage('Type must be either income or expense'),
+  body('category')
+    .trim()
+    .notEmpty()
+    .withMessage('Category is required')
+    .isLength({ max: 50 })
+    .withMessage('Category must not exceed 50 characters'),
+  body('amount')
+    .isFloat({ min: 0.01 })
+    .withMessage('Amount must be a positive number'),
+  body('description')
+    .optional()
+    .trim()
+    .isLength({ max: 500 })
+    .withMessage('Description must not exceed 500 characters'),
+  body('transaction_date')
+    .optional()
+    .isISO8601()
+    .withMessage('Transaction date must be a valid ISO 8601 date')
+];
