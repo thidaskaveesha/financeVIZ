@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
+import transactionRoutes from './routes/transaction.js';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/transaction', transactionRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
