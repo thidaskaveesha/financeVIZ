@@ -1,0 +1,40 @@
+.pageTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: #383838;
+    color: white;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pageTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pageTopBtn:hover {
+    background-color: #555;
+}
+
+@media (max-width: 600px) {
+    .pageTopBtn {
+        bottom: 15px;
+        right: 15px;
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+}
