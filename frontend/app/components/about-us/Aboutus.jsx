@@ -14,7 +14,7 @@ const Aboutus = () => {
         {
             title: 'Our Story',
             icon: '/about-us/our-story.png',
-            content: 'FinanceViz is developed by Mozo Technology, a technology company with experience across a wide range of industries, including higher education. One of our notable achievements is a student navigation system developed for the Open University of Sri Lanka (OUSL), Nawala branch, which became a winning product at a national-level competition. This success reflects our focus on building practical, impact-driven solutions.',
+            content: 'FinanceViz is developed by Mozo Technology, a technology company with experience across a wide range of industries, including higher education. One of our notable achievements is a student navigation system developed for the Open University of Sri Lanka (OUSL), Nawala branch, which became a winning product at a competition. This success reflects our focus on building practical, impact-driven solutions.',
         },
         {
             title: 'Our Vision',
