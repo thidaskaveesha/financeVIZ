@@ -33,8 +33,10 @@
 /* Grid layout for features */
 .featuresGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* Feature card with staggered scroll animation */
@@ -108,30 +110,17 @@
 /* Responsive design */
 @media (max-width: 768px) {
     .featuresContainer {
-        padding: 60px 0;
+        padding: 50px 0;
+        height: auto;
+    }
+
+    .featuresWrapper {
+        padding: 0 16px;
     }
 
     .sectionTitle {
-        font-size: 36px;
-    }
-
-    .sectionSubtitle {
-        font-size: 18px;
-        margin-bottom: 40px;
-    }
-
-    .featureCard {
-        padding: 30px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .featuresContainer {
-        padding: 40px 0;
-    }
-
-    .sectionTitle {
-        font-size: 28px;
+        font-size: 32px;
+        margin-bottom: 8px;
     }
 
     .sectionSubtitle {
@@ -140,18 +129,118 @@
     }
 
     .featuresGrid {
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .featureCard {
         padding: 24px 16px;
     }
 
+    .featureIcon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
     .featureTitle {
         font-size: 18px;
+        margin-bottom: 10px;
     }
 
     .featureDescription {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featuresContainer {
+        padding: 30px 0;
+        height: auto;
+    }
+
+    .featuresWrapper {
+        padding: 0 12px;
+        max-width: 100%;
+    }
+
+    .sectionTitle {
+        font-size: 24px;
+        margin-bottom: 6px;
+        letter-spacing: 0;
+    }
+
+    .sectionSubtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .featureCard {
+        padding: 18px 12px;
+        border-radius: 8px;
+    }
+
+    .featureCard:hover {
+        transform: translateY(-3px);
+    }
+
+    .featureIcon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .featureTitle {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .featureDescription {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 360px) {
+    .featuresContainer {
+        padding: 20px 0;
+    }
+
+    .featuresWrapper {
+        padding: 0 10px;
+    }
+
+    .sectionTitle {
+        font-size: 20px;
+    }
+
+    .sectionSubtitle {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .featureCard {
+        padding: 14px 10px;
+    }
+
+    .featureIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .featureTitle {
+        font-size: 14px;
+    }
+
+    .featureDescription {
+        font-size: 12px;
     }
 }

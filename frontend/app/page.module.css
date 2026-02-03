@@ -19,6 +19,14 @@
   background-color: var(--background);
 }
 
+.page > * {
+  flex-shrink: 0;
+}
+
+.page > :nth-child(3) {
+  flex-grow: 1;
+}
+
 :root[data-theme="dark"] .page {
   --background: #000;
   --foreground: #000;
