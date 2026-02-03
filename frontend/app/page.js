@@ -5,6 +5,7 @@ import PageTopButton from "./components/page-top-btn";
 import RootNavBar from "./components/root/RootNavBar";
 import Hero from "./components/hero/Hero";
 import Features from "./components/features/Features";
+import Aboutus from "./components/about-us/Aboutus";
 import Footer from "./components/footer/Footer";
 
 export default function Home() {
@@ -16,6 +17,9 @@ export default function Home() {
         {/* Hero section with video background and animated text */}
         <Hero />
 
+        {/* About Us section with scroll animations */}
+        <Aboutus />
+        
         {/* Features section with scroll animations */}
         <Features />
 

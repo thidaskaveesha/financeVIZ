@@ -1,0 +1,643 @@
+/* About Us section with advanced animations */
+.aboutContainer {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background);
+    color: var(--text-primary);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.aboutWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero Section */
+.heroSection {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.heroGlow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.mainTitle {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.tagline {
+    font-size: 24px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 30px;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+    animation: expandWidth 1s ease-out 0.6s both;
+}
+
+/* Story Grid */
+.storyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+/* Story Cards */
+.storyCard {
+    background-color: var(--foreground);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 0.4s ease;
+    overflow: visible;
+}
+
+.storyCard.cardVisible {
+    animation: cardFadeIn 0.8s ease-out forwards;
+}
+
+.storyCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="dark"] .storyCard:hover {
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.cardGlow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.storyCard:hover .cardGlow {
+    opacity: 1;
+    animation: rotateGlow 8s linear infinite;
+}
+
+.cardIcon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.storyCard:hover .cardIcon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.iconEmoji {
+    animation: floatIcon 3s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cardTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.cardContent {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+.cardBorder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    transition: width 0.5s ease;
+    border-radius: 3px;
+}
+
+.cardBorder.borderActive {
+    width: 100%;
+}
+
+/* Mission Section */
+.missionSection {
+    opacity: 0;
+    transform: translateY(40px);
+    margin-top: 60px;
+}
+
+.missionSection.missionVisible {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.missionCard {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05));
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #3b82f6, #9333ea) 1;
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.missionGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.missionTitle {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.missionText {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.pulseCircle {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    animation: expandPulse 3s ease-out infinite;
+}
+
+/* Floating Background Elements */
+.floatingElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float1,
+.float2,
+.float3 {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.05;
+}
+
+.float1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    top: 10%;
+    right: 5%;
+    animation: float 20s ease-in-out infinite;
+}
+
+.float2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #9333ea, #3b82f6);
+    bottom: 20%;
+    left: 10%;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+.float3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    top: 50%;
+    left: 50%;
+    animation: float 18s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes expandPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(30px, -30px) rotate(120deg);
+    }
+    66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .mainTitle {
+        font-size: 52px;
+    }
+
+    .tagline {
+        font-size: 20px;
+    }
+
+    .storyGrid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .heroGlow {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutContainer {
+        padding: 80px 0;
+    }
+
+    .aboutWrapper {
+        padding: 0 16px;
+    }
+
+    .heroSection {
+        margin-bottom: 50px;
+    }
+
+    .mainTitle {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    .tagline {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .divider {
+        width: 80px;
+        height: 3px;
+    }
+
+    .storyGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .storyCard {
+        padding: 32px 24px;
+        border-radius: 16px;
+    }
+
+    .cardIcon {
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .cardTitle {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .cardContent {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .missionCard {
+        padding: 40px 24px;
+        border-radius: 20px;
+    }
+
+    .missionTitle {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .missionText {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .heroGlow {
+        width: 400px;
+        height: 400px;
+    }
+
+    .float1,
+    .float2,
+    .float3 {
+        opacity: 0.03;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutContainer {
+        padding: 60px 0;
+    }
+
+    .aboutWrapper {
+        padding: 0 12px;
+    }
+
+    .heroSection {
+        margin-bottom: 40px;
+    }
+
+    .mainTitle {
+        font-size: 32px;
+        letter-spacing: -0.5px;
+    }
+
+    .tagline {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .divider {
+        width: 60px;
+        height: 2px;
+    }
+
+    .storyGrid {
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .storyCard {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .storyCard:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    .cardIcon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        margin-bottom: 16px;
+        border-radius: 15px;
+    }
+
+    .cardTitle {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .cardContent {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .missionCard {
+        padding: 32px 20px;
+        border-radius: 16px;
+    }
+
+    .missionTitle {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .missionText {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .pulseCircle {
+        width: 150px;
+        height: 150px;
+        bottom: -40px;
+        right: -40px;
+    }
+
+    .heroGlow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .missionGlow {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .aboutContainer {
+        padding: 40px 0;
+    }
+
+    .aboutWrapper {
+        padding: 0 10px;
+    }
+
+    .mainTitle {
+        font-size: 28px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+
+    .storyCard {
+        padding: 20px 16px;
+    }
+
+    .cardIcon {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        border-radius: 12px;
+    }
+
+    .cardTitle {
+        font-size: 18px;
+    }
+
+    .cardContent {
+        font-size: 13px;
+    }
+
+    .missionCard {
+        padding: 24px 16px;
+    }
+
+    .missionTitle {
+        font-size: 20px;
+    }
+
+    .missionText {
+        font-size: 14px;
+    }
+}
