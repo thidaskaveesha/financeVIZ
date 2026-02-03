@@ -1,6 +1,7 @@
 /* Features section with scroll animations */
 .featuresContainer {
     width: 100%;
+    height: 100vh;
     background-color: var(--background);
     color: var(--text-primary);
     padding: 100px 0;

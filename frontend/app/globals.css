@@ -8,12 +8,15 @@
   --foreground: #ededed;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Always use dark theme unless user manually sets light theme */
+@media (prefers-color-scheme: dark) , (prefers-color-scheme: light ) {
   :root:not([data-theme="light"]) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+
+
 
 html,
 body {

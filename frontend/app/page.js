@@ -19,7 +19,7 @@ export default function Home() {
         <Features />
 
         {/* Floating controls - theme toggle and scroll to top */}
-        <ThemeToggleButton />
+        {/* <ThemeToggleButton /> */}
         <PageTopButton />
       </div>
     </>
